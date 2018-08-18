@@ -1,6 +1,8 @@
 import javax.swing.*;
 import java.awt.FlowLayout;
-
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.plaf.metal.MetalLookAndFeel;
 public class GUI{
 
 	public static void main (String[] args){
@@ -22,6 +24,8 @@ public class GUI{
 	*/
 	// С панели
 
+		JFrame.setDefaultLookAndFeelDecorated(true);
+
 		JFrame frame = new JFrame("Мой Окно");	
 		JPanel p = new JPanel();
 		JButton b = new JButton("CLICK ME!");
@@ -30,11 +34,22 @@ public class GUI{
 		frame.setDefaultCloseOperation(3);
 		frame.setVisible(true);
 		frame.setLayout(new FlowLayout());	
-		
-
-		frame.add(p);
+		frame.setLocationRelativeTo(null); // центровка окна (относительное местоположение к другим компонетам равен нулю)
+		frame.getContentPane().add(p);
+		p.setBorder(BorderFactory.createLoweredBevelBorder());
 		p.add(b);
 		b.setSize(180, 50);
+
+		
+
+
+		try {
+                	UIManager.setLookAndFeel(new MetalLookAndFeel());
+           	} catch (UnsupportedLookAndFeelException ex) {
+               	 	Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+            	}
+
+		
 
 			
 	}

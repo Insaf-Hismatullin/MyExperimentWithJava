@@ -9,7 +9,7 @@ public class MyFrame extends JFrame {
 		JButton b = new JButton("click me!");
 
 			
-		super.add(b);
+		super.getContentPane().add(b);
 		super.setSize(300, 300);
 		super.setDefaultCloseOperation(3);
 		super.setLayout(new FlowLayout());
